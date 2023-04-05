@@ -25,7 +25,7 @@ cp pxelinux.cfg/default{.example,}
 next-server x.x.x.x;  
 filename "pxelinux.0"; 
 ``` 
-or with KVM, add a <bootp> to the network config, ex: /etc/libvirt/qemu/networks/default.xml  
+or with KVM, add a `<bootp>` to the network config, ex: /etc/libvirt/qemu/networks/default.xml  
 ```xml
 <dhcp>
   ...
