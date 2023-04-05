@@ -1,0 +1,22 @@
+DEFAULT vesamenu.c32
+TIMEOUT 800
+ONTIMEOUT Mounting_iso_without_cloudinit
+PROMPT 0
+MENU INCLUDE pxelinux.cfg/menu.cfg
+
+
+NOESCAPE 0
+
+
+LABEL Mounting_iso_without_cloudinit
+        MENU DEFAULT
+        MENU LABEL Mounting iso without cloudinit
+        KERNEL vmlinuz
+        APPEND ramdisk_size=1500000 root=/dev/ram0 initrd=initrd ip=dhcp url=http://myip/isoname.iso
+
+LABEL Mounting_iso_with_cloudinit
+        MENU LABEL Mounting iso with cloudinit
+        KERNEL vmlinuz
+        INITRD initrd
+        APPEND root=/dev/ram0 ramdisk_size=1500000 ip=dhcp url=http://myip/isoname.iso autoinstall ds=nocloud-net;s=http://cloudinitserver-with-directory-containing-the-user-data-and-meta-data-file/ #cloud-config-url=/dev/null
+
