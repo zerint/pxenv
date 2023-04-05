@@ -38,3 +38,5 @@ docker build -t pxeserver .
 docker run -dt --network=host -v $(pwd)/pxelinux.cfg:/srv/tftp/pxelinux.cfg:ro pxeserver
 docker run -dt -p 80:80 -v $(pwd)/httpd:/usr/local/apache2/htdocs httpd:alpine3.17
 ```
+### Tested with:
+- [Ubuntu 22.04.2 amd64 ISO](https://releases.ubuntu.com/jammy/ubuntu-22.04.2-live-server-amd64.iso)
